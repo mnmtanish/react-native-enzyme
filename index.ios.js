@@ -50,4 +50,15 @@ const styles = StyleSheet.create({
   },
 });
 
+import { shallow } from 'enzyme';
+import expect from 'expect';
+
+let output = shallow(<ReactNativeEnzyme />);
+try {
+  expect(output.text()).toContain('Welcome');
+  console.warn('** passed!');
+} catch (e) {
+  console.warn('** failed!', e);
+}
+
 AppRegistry.registerComponent('ReactNativeEnzyme', () => ReactNativeEnzyme);
